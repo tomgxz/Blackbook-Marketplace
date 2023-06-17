@@ -4,7 +4,7 @@
 
 {%block styleimports%}
 {% load static %}
-<link rel="stylesheet" href="{% static 'error.css' %}"></link>
+<link rel="stylesheet" href="/static/css/error.css"></link>
 {%endblock%}
 
 {% block breadcrumbs %}
@@ -12,13 +12,13 @@
 <li class="breadcrumb-item active text-light" aria-current="page">404</li>
 {% endblock %}
 
-{%block generic-content%}
+{%block content%}
 
 
 <div class="d-flex align-items-center justify-content-center flex-row-reverse vh-100">
     <div class="text-center row justify-content-center">
         <h1 class="display-1"><strong>{%block errorname%}{%endblock%}</strong></h1>
-        <a class="text-decoration-none" href="{% url 'favouritebooks:index' %}"><h5>BACK HOME</h5></a>
+        <a class="text-decoration-none" href="{% url 'blackbook:index' %}"><h5>BACK HOME</h5></a>
 
     </div>
 </div>
