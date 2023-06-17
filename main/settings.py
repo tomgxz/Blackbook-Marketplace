@@ -23,9 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=q5e15&3$j=10djmou2=3s!(hmz6(wqpx#@mq!w0^%)=+#6u#+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]', "192.168.1.9", "192.168.0.10", "90e2e08a-3155-43d6-9745-6e6675a85759.id.repl.co", "blackbook-marketplace.tomgxz.repl.co"]
+
+CSRF_TRUSTED_ORIGINS=['https://blackbook-marketplace.tomgxz.repl.co']
 
 # Application definition
 
