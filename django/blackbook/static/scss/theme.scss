@@ -1,0 +1,108 @@
+@import "../bootstrap/scss/functions";
+
+@font-face {
+    font-family: "URW Form Semicond XB";
+    src: url('../font/urw-form-semicond-extra-bold.ttf')
+}
+
+$white: #ffffff;
+
+$light: #ffffff;
+$dark: #18191a;
+$primary: #1877f2;
+$secondary: #242526;
+$info: #3a3b3c;
+$success: #10a103;
+$warning: #f7c104;
+$danger: #e92500;
+
+@import "../bootstrap/scss/bootstrap";
+
+#hidden-search-input {
+    display:none;
+}
+
+#hidden-search-input.show {
+    display:initial;
+}
+
+.navbar-icon {
+    width:40px;
+    height:40px;
+    border-radius:2em;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color:var(--bs-info);
+    transition:background-color 100ms ease-in-out;
+}
+
+.navbar-icon.hover-bg {
+    background-color:transparent;
+    border-radius:.5em;
+}
+
+.navbar-icon:hover {
+    background-color:var(--bs-gray);
+}
+
+.navbar-icon.hover-bg:hover {
+    background-color:var(--bs-info);
+}
+
+.option-list-option {
+    background-color:transparent;
+    border-radius:.5em;
+    transition:background-color 100ms ease-in-out;
+}
+
+.option-list-option:hover {
+    background-color:var(--bs-info);
+}
+
+.option-list-option:hover .navbar-icon {
+    background-color:var(--bs-gray);
+}
+
+.option-list-option.selected {
+    background-color:var(--bs-info);
+}
+
+.option-list-option.selected .navbar-icon {
+    background-color:var(--bs-primary);
+}
+
+.chevron-right {
+    position:relative
+}
+
+.chevron-right::after {
+    content:"\f054";
+    font-family:"Font Awesome 6 Pro";
+    top:50%;
+    right:8px;
+    position:absolute;
+    transform:translateY(-50%)
+}
+
+.option-list-button {
+    background-color:rgba(var(--bs-primary-rgb),.15)
+}
+
+.option-list-button:hover,.option-list-button:active {
+    background-color:rgba(var(--bs-primary-rgb),.4)
+}
+
+.overflow-scroll::-webkit-scrollbar {
+    background:transparent;
+    width:5px;
+}
+
+.overflow-scroll::-webkit-scrollbar-track {
+    background:transparent;
+}
+
+.overflow-scroll::-webkit-scrollbar-thumb {
+    background:var(--bs-gray);
+    border-radius: 1em;
+}
