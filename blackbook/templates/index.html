@@ -47,7 +47,7 @@
 
 <div class="d-flex flex-row">
 
-    <div class="d-flex flex-column align-items-center text-white bg-secondary border-end border-info" style="width:60px;height:calc(100vh - 58px)">
+    <div class="d-flex flex-column align-items-center text-white bg-secondary border-end border-info overflow-scroll" style="width:60px;height:calc(100vh - 58px);overflow-y: hidden!important;">
         
         <div class="d-flex flex-column align-items-center pt-3">
             <div role="button" class="mb-2 navbar-icon hover-bg">
@@ -105,7 +105,7 @@
 
         <hr class="w-50">
 
-        <div class="d-flex flex-column align-items-center">
+        <div class="d-flex flex-column align-items-center mb-3">
             <div role="button" class="navbar-icon">
                 <i class="fa fa-link navbar-icon-content"></i>
             </div>
@@ -113,7 +113,7 @@
 
     </div>
 
-    <div class="d-none d-lg-flex flex-column align-items-center text-white bg-secondary border-end border-info px-3" style="width:360px;height:calc(100vh - 58px)">
+    <div class="d-none d-lg-flex flex-column align-items-center text-white bg-secondary border-end border-info px-3" style="width:360px;height:calc(100vh - 58px);overflow-y: hidden!important;">
         
         <div class="d-flex flex-column align-items-center w-100">
 
@@ -173,7 +173,7 @@
 
             <div class="d-flex flex-column w-100">
                 <h6 class="fw-bold">Filters</h6>
-                <span role="button" class="text-primary">Flitwick · Within 65 kilometres</span>
+                <span role="button" class="text-primary"><span id="sidebar-filter-loc"></span> · Within 65 kilometres</span>
             </div>
 
             <hr class="w-100">
@@ -241,14 +241,14 @@
                 <h5 class="fw-bold">Today's picks</h5>
                 <span class="text-primary">
                     <i class="fa fa-map-marker"></i>
-                    <a role="button" class="text-primary">Bedford · 65km</a>
+                    <a role="button" class="text-primary"><span id="main-content-loc"></span> · 10km</a>
                 </span>
             </div>
 
             {% if item_list %}
 
             <div class="row">
-
+ 
                 {% for item in item_list %}
 
                     <div class="col-6 col-sm-3 col-lg-4 col-xl-3 mb-4" role="button">
@@ -274,6 +274,9 @@
     </main>
 
 </div>
+
+
+<script src="./static/js/index.js"></script>
 
 {% endblock %}
 
