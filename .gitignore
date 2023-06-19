@@ -2,6 +2,8 @@
 .replit
 replit.nix
 
+blackbook/data/useraccesslog
+
 django/favouritebooks/migrations/*
 
 ### Django ###

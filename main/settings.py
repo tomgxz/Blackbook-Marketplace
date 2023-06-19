@@ -25,9 +25,9 @@ SECRET_KEY = 'django-insecure-=q5e15&3$j=10djmou2=3s!(hmz6(wqpx#@mq!w0^%)=+#6u#+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]', "192.168.1.9", "192.168.0.10", "90e2e08a-3155-43d6-9745-6e6675a85759.id.repl.co", "blackbook-marketplace.tomgxz.repl.co"]
+ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]', "90e2e08a-3155-43d6-9745-6e6675a85759.id.repl.co", "blackbook-marketplace.tomgxz.repl.co", "10.10.6.227"]
 
-CSRF_TRUSTED_ORIGINS=['https://blackbook-marketplace.tomgxz.repl.co']
+CSRF_TRUSTED_ORIGINS=["https://90e2e08a-3155-43d6-9745-6e6675a85759.id.repl.co", 'https://blackbook-marketplace.tomgxz.repl.co']
 
 # Application definition
 
