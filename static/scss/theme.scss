@@ -18,8 +18,6 @@ $danger: #e92500;
 
 @import "../bootstrap/scss/bootstrap";
 
-/*#region*/
-
 #hidden-search-input {
     display:none;
 }
@@ -108,7 +106,3 @@ $danger: #e92500;
     background:var(--bs-gray);
     border-radius: 1em;
 }
-
-
-/*#endregion*/
-
