@@ -26,8 +26,9 @@
 
                     
                     <div class="carousel-item {% if image == item.images.0 %}active{% endif %} h-100 position-relative">
-
-                        <div class="w-100 h-100 position-absolute" style="
+                        
+                        
+                        <div class="w-100 h-100 position-absolute" style="/* eslint-disable-line */
                             background-image:url('{% static 'img/marketplace-images/' %}{{image.url}}');
                             background-size:cover;
                             background-position-x: center;
@@ -120,7 +121,7 @@
                     </div>
                     <div class="d-flex flex-column justify-content-center">
                         <h6 class="mb-1 fw-bold">{{item.seller.name}}</h6>
-                        <span class="text-light">No Groups In Common</span>
+                        <!--<span class="text-light">No Groups In Common</span>-->
                     </div>
                 </div>
                 <span class="text-light">Joined Blackbook in {{item.seller.createdYear}}</span>
