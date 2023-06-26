@@ -4,7 +4,7 @@ replit.nix
 
 blackbook/data/useraccesslog
 
-django/favouritebooks/migrations/*
+blackbook/migrations/*
 
 ### Django ###
 *.log
