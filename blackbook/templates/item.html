@@ -1,0 +1,154 @@
+{% extends 'base-generic.html' %}
+
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% load static %}
+
+{%block tab-title%}{%block meta-title%}{%block apple-title%}{%block app-title%}{%block og-name-title%}{%block og-title%}{%block tw-card-title%}{%block tw-title%}Blackbook Marketplace{%endblock%}{%endblock%}{%endblock%}{%endblock%}{%endblock%}{%endblock%}{%endblock%}{%endblock%}
+
+{%block styleimports%}<link href="{% static 'css/build.css' %}" rel="stylesheet" type="text/css" />{%endblock%}
+
+{% block content %}
+
+{% if item %}
+
+<div class="d-flex flex-row" style="height:100vh">
+
+    <main style="width:calc(100% - 360px)" class="h-100">
+    
+        <div id="itemImagesCarousel" class="carousel carousel-dark slide h-100" data-bs-ride="carousel" data-bs-interval="false">
+
+            <div class="carousel-inner h-100">
+
+                {% for image in item.images %}
+
+                    
+                    <div class="carousel-item {% if image == item.images.0 %}active{% endif %} h-100 position-relative">
+
+                        <div class="w-100 h-100 position-absolute" style="
+                            background-image:url('{% static 'img/marketplace-images/' %}{{image.url}}');
+                            background-size:cover;
+                            background-position-x: center;
+                            background-position-y: center;
+                            filter:blur(5px);
+                        "></div>
+
+                        <div class="w-100 h-100 position-relative" style="
+                            background-image:url('{% static 'img/marketplace-images/' %}{{image.url}}');
+                            background-size:contain;
+                            background-repeat:no-repeat;
+                            background-position-x: center;
+                            background-position-y: center;
+                        "></div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#itemImagesCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#itemImagesCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            
+          </div>
+    
+    </main>
+
+    <div style="width:360px" class="d-flex flex-column border-1 border-start border-info h-100">
+
+        <nav class="navbar navbar-light border-1 py-2 px-3 border-bottom border-info justify-content-between">
+                    
+            <div></div>
+
+            <div class="d-flex align-items-center">
+
+                <div role="button" class="me-2 navbar-icon">
+                    <i class="fa fa-brands fa-facebook-messenger navbar-icon-content"></i>
+                </div>
+
+                <div role="button" class="me-2 navbar-icon">
+                    <i class="fa fa-bell navbar-icon-content"></i>
+                </div>
+
+                <div role="button" class="navbar-icon">
+                    <i class="fa fa-user navbar-icon-content"></i>
+                </div>
+
+            </div>
+
+        </nav>
+
+        <div class="py-2 px-3">
+
+            <div>
+                <h3 class="mb-1">{{item.name}}</h3>
+                <h6 class="mb-1">{{item.price}}</h6>
+                <span class="text-muted">Listed {{item.createdDist}} ago in {{item.locName}}</span>
+                <div class="d-flex flex-row my-3">
+                    <a role="button" class="btn btn-info me-2" style="width: -webkit-fill-available"><i class="fa fa-brands fa-facebook-messenger"></i> <span class="fw-bold">Message</span></a>
+                    <a role="button" class="btn btn-info me-2"><i class="fa fa-bookmark"></i></a>
+                    <a role="button" class="btn btn-info me-2"><i class="fa fa-share"></i></a>
+                    <a role="button" class="btn btn-info me-2"><i class="fa fa-ellipsis"></i></a>
+                </div>
+                <h4>Details</h4>
+                <div style="background-image: url(https://external-ams4-1.xx.fbcdn.net/static_map.php?v=2044&theme=dark&ccb=4-4&size=328x120&language=en_GB&scale=1&zoom=11&center=53.231506347656%2C-0.5328369140625&circle=weight%3A2%7Ccolor%3A0x4D6AA47f%7Cfillcolor%3A0x4D6AA41c%7C53.231506347656%2C-0.5328369140625%7C2k&_nc_client_id=marketplace_post_permalink&_nc_client_caller=MarketplaceStaticMap.react);
+                background-repeat: no-repeat;
+                background-size: 100% 100%;"></div>
+                <h6>{{item.loc}}</h6>
+                <span class="text-muted">Location is approximate</span>
+            </div>
+
+            <hr>
+
+            <div>
+                <div class="d-flex flex-row justify-content-between align-items-center mb-2">
+                    <h4 class="mb-1">Seller information</h4>
+                    <a role="button" class="btn btn-dark text-primary" href="/marketplace/user/{{item.seller.id}}/{{item.reducedName}}">Seller details</a>
+                </div>
+                <div class="d-flex flex-row mb-2">
+                    <div role="button" class="navbar-icon me-2" style="width:50px;height:50px">
+                        <i class="fa fa-user navbar-icon-content"></i>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                        <h6 class="mb-1 fw-bold">{{item.seller.name}}</h6>
+                        <span class="text-light">No Groups In Common</span>
+                    </div>
+                </div>
+                <span class="text-light">Joined Blackbook in {{item.seller.createdYear}}</span>
+                <div class="d-flex flex-row mt-3">
+                    <a role="button" class="btn btn-dark text-muted w-50 me-1"><i class="fal fa-thumbs-up"></i> Like</a>
+                    <a role="button" class="btn btn-dark text-muted w-50 ms-1"><i class="fal fa-comment-alt"></i> Comment</a>
+                </div>
+                
+            </div>
+
+            <hr>
+
+            <div class="d-flex flex-row">
+                <div role="button" class="navbar-icon me-2">
+                    <i class="fa fa-user navbar-icon-content"></i>
+                </div>
+                <input placeholder="Write a comment" class="border-0 form-control bg-info" style="border-radius:1em;width:initial">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+
+{% endblock %}
+
+{%block scriptimports%}<script src="{% static 'js/index.js' %}"></script>{%endblock%}

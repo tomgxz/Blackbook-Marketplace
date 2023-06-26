@@ -253,17 +253,17 @@
  
                 {% for item in item_list %}
 
-                    <div class="col-6 col-sm-3 col-lg-4 col-xl-3 mb-4" role="button">
+                    <a class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-3 mb-4 text-decoration-none" role="button" href="/marketplace/item/{{item.id}}/{{item.reducedName}}">
                         <div class="d-flex rounded overflow-hidden mb-2">
-                            <img alt="{{item.name}} in {{item.loc}}" class="w-100" src="{{item.img}}">
+                            <img alt="{{item.mainImage.alt}} in {{item.loc}}" class="w-100" src="{% static 'img/marketplace-images/' %}{{item.mainImage.url}}">
                         </div>
                         <div class="d-flex flex-column">
                             <h5 class="mb-0">{{item.price}}</h5>
                             <span class="text-white">{{item.name}}</span>
-                            <span>{{item.loc}}</span>
-                            <span>{{item.dist}}</span>
+                            <span class="text-muted">{{item.locName}}</span>
+                            <span class="text-muted">{{item.dist}}</span>
                         </div>
-                    </div>
+                    </a>
 
                 {% endfor %}
 
