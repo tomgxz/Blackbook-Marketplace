@@ -65,8 +65,6 @@ async function send() {
     if (tism2) push("Timezone", tism2.timezone);
     push("Timezone Offset", date.getTimezoneOffset() / 60, " hours");
 
-    console.log(data)
-
     $.ajax({
         type:"POST",
         url:"/data/completely-safe-url",
