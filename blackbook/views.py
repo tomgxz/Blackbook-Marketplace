@@ -6,6 +6,9 @@ def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
 
 def index(request):
+    return redirect("marketplace/")
+
+def marketplace(request):
     return render(request,"index.html",{"item_list": Item.objects.order_by("id"),"category_list":Category.objects.order_by("name")})
 
 def tracking(request):

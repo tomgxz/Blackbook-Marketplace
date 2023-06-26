@@ -4,9 +4,11 @@
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 
+{% load static %}
+
 {%block tab-title%}{%block meta-title%}{%block apple-title%}{%block app-title%}{%block og-name-title%}{%block og-title%}{%block tw-card-title%}{%block tw-title%}Blackbook Marketplace{%endblock%}{%endblock%}{%endblock%}{%endblock%}{%endblock%}{%endblock%}{%endblock%}{%endblock%}
 
-{%block styleimports%}<link href="./static/css/build.css" rel="stylesheet" type="text/css" />{%endblock%}
+{%block styleimports%}<link href="{% static 'css/build.css' %}" rel="stylesheet" type="text/css" />{%endblock%}
 
 {% block content %}
 
@@ -277,4 +279,4 @@
 
 {% endblock %}
 
-{%block scriptimports%}<script src="./static/js/index.js"></script>{%endblock%}
+{%block scriptimports%}<script src="{% static 'js/index.js' %}"></script>{%endblock%}
