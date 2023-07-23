@@ -93,16 +93,16 @@ $danger: #e92500;
     background-color:rgba(var(--bs-primary-rgb),.4)
 }
 
-.overflow-scroll::-webkit-scrollbar {
+::-webkit-scrollbar {
     background:transparent;
     width:5px;
 }
 
-.overflow-scroll::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background:transparent;
 }
 
-.overflow-scroll::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background:var(--bs-gray);
     border-radius: 1em;
 }

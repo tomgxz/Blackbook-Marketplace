@@ -14,9 +14,23 @@
 
 {% if item %}
 
-<div class="d-flex flex-row" style="height:100vh">
+<style>
+    body {
+        height:100vh!important;
+    }
+    main {
+        min-height:40vh;
+    }
+    @media screen and (min-width:768px) {
+        main {
+            width:calc(100% - 360px)!important
+        }
+    }
+</style>
 
-    <main style="width:calc(100% - 360px)" class="h-100">
+<div class="d-flex flex-column flex-md-row h-100">
+
+    <main class="h-100">
     
         <div id="itemImagesCarousel" class="carousel carousel-dark slide h-100" data-bs-ride="carousel" data-bs-interval="false">
 
@@ -24,9 +38,7 @@
 
                 {% for image in item.images %}
 
-                    
                     <div class="carousel-item {% if image == item.images.0 %}active{% endif %} h-100 position-relative">
-                        
                         
                         <div class="w-100 h-100 position-absolute" style="/* eslint-disable-line */
                             background-image:url('{% static 'img/marketplace-images/' %}{{image.url}}');
@@ -64,7 +76,19 @@
     
     </main>
 
-    <div style="width:360px" class="d-flex flex-column border-1 border-start border-info h-100">
+    <style scoped>
+        #side-navbar {
+            width:360px!important
+        }
+
+        @media screen and (max-width:767px) {
+            #side-navbar {
+                width:100%!important
+            }
+        }
+    </style>
+
+    <div id="side-navbar" class="d-flex flex-column border-1 border-start border-info w-100 w-md-initial h-100">
 
         <nav class="navbar navbar-light border-1 py-2 px-3 border-bottom border-info justify-content-between">
                     
@@ -94,17 +118,54 @@
                 <h3 class="mb-1">{{item.name}}</h3>
                 <h6 class="mb-1">{{item.price}}</h6>
                 <span class="text-muted">Listed {{item.createdDist}} ago in {{item.locName}}</span>
-                <div class="d-flex flex-row my-3">
-                    <a role="button" class="btn btn-info me-2" style="width: -webkit-fill-available"><i class="fa fa-brands fa-facebook-messenger"></i> <span class="fw-bold">Message</span></a>
+
+                <div class="d-none d-md-flex flex-row my-3">
+                    <a role="button" class="btn btn-info me-2" style="width:-webkit-fill-available"><i class="fa fa-brands fa-facebook-messenger"></i> <span class="fw-bold">Message</span></a>
                     <a role="button" class="btn btn-info me-2"><i class="fa fa-bookmark"></i></a>
                     <a role="button" class="btn btn-info me-2"><i class="fa fa-share"></i></a>
                     <a role="button" class="btn btn-info me-2"><i class="fa fa-ellipsis"></i></a>
                 </div>
-                <h4>Details</h4>
-                <div style="background-image: url(https://external-ams4-1.xx.fbcdn.net/static_map.php?v=2044&theme=dark&ccb=4-4&size=328x120&language=en_GB&scale=1&zoom=11&center=53.231506347656%2C-0.5328369140625&circle=weight%3A2%7Ccolor%3A0x4D6AA47f%7Cfillcolor%3A0x4D6AA41c%7C53.231506347656%2C-0.5328369140625%7C2k&_nc_client_id=marketplace_post_permalink&_nc_client_caller=MarketplaceStaticMap.react);
-                background-repeat: no-repeat;
-                background-size: 100% 100%;"></div>
-                <h6>{{item.loc}}</h6>
+
+                <div class="d-flex d-md-none flex-column my-3">
+                    <a role="button" class="btn btn-primary mb-4 w-100 text-light"><i class="fa fa-brands fa-facebook-messenger"></i> <span class="fw-bold">Message</span></a>
+                    <div class="d-flex flex-row">
+                        <a role="button" class="btn btn-info me-2" style="width: -webkit-fill-available"><i class="fa fa-bookmark"></i> <span class="fw-bold">Save</span></a>
+                        <a role="button" class="btn btn-info me-2" style="width: -webkit-fill-available"><i class="fa fa-share"></i> <span class="fw-bold">Share</span></a>
+                        <a role="button" class="btn btn-info"><i class="fa fa-ellipsis"></i></a>
+                    </div>
+                </div>
+
+
+                <h4 class="mb-2">Details</h4>
+
+                {% if item.condition %}
+                <div class="d-flex flex-row justify-content-between text-light mb-2">
+                    <span class="fw-bold w-50">Condition</span>
+                    <span class="w-50">{{item.condition}}</span>
+                </div>
+                {% endif %}
+
+                {% if item.brand %}
+                <div class="d-flex flex-row justify-content-between text-light mb-2">
+                    <span class="fw-bold w-50">Brand</span>
+                    <span class="w-50">{{item.brand}}</span>
+                </div>
+                {% endif %}
+
+                {% if item.desc %}
+                <p class="text-light mb-2">{{item.desc}}</p>
+                {% endif %}
+
+                <div style="
+                    background-image: url(https://external-ams4-1.xx.fbcdn.net/static_map.php?v=2044&theme=dark&ccb=4-4&size=328x120&language=en_GB&scale=1&zoom=11&center={{item.locXCoord}}%2C{{item.locYCoord}}&circle=weight%3A2%7Ccolor%3A0x4D6AA47f%7Cfillcolor%3A0x4D6AA41c%7C{{item.locXCoord}}%2C{{item.locYCoord}}%7C2k&_nc_client_id=marketplace_post_permalink&_nc_client_caller=MarketplaceStaticMap.react);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                    width:100%;
+                    height:120px;
+                "></div>
+
+                <h6 class="mt-2 mb-0">{{item.locName}}</h6>
                 <span class="text-muted">Location is approximate</span>
             </div>
 

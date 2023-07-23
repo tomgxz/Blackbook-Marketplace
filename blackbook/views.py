@@ -5,9 +5,6 @@ from geopy.exc import GeocoderUnavailable
 from .models import Item,Category,ItemImage
 import json,datetime,re,geocoder,humanize,locale
 
-
-
-
 def is_ajax(request):
     return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
 
@@ -79,7 +76,6 @@ def marketplaceItem(request,item_id,item_name):
     try: 
         itemLoc = Nominatim(user_agent="GetLoc").reverse(f"{item.locx}, {item.locy}")
         itemLoc = itemLoc.raw["address"]
-        print(itemLoc)
         itemLoc = f"{itemLoc.get('town','')}, {itemLoc.get('country','')}"
     except GeocoderUnavailable as e: itemLoc = "Unknown"
     except AttributeError as e: itemLoc = "Unknown"
@@ -96,6 +92,9 @@ def marketplaceItem(request,item_id,item_name):
         "id": item.id,
         "name": item.name,
         "reducedName": re.sub('[^0-9a-zA-Z]+', '_', item.name),
+        "desc":item.desc,
+        "condition":item.condition,
+        "brand":item.brand,
         "locName": itemLoc,
         "locXCoord": item.locx,
         "locYCoord": item.locy,
@@ -124,10 +123,13 @@ def marketplaceItem(request,item_id,item_name):
 
     g = geocoder.ip('me')
 
-    userdat = {
-        "currentX":g.latlng[0],
-        "currentY":g.latlng[1]
-    }
+    try:
+        userdat = {
+            "currentX":g.latlng[0],
+            "currentY":g.latlng[1]
+        }
+    except TypeError as e:
+        userdat = {}
 
     if item_name == re.sub('[^0-9a-zA-Z]+', '_', item.name): 
         return render(request, "item.html", {"item": newitem,"userdat":userdat}) 

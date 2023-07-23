@@ -16,7 +16,9 @@ class Category(models.Model):
 
 class Item(models.Model):
     name = models.CharField("Name",max_length=200)
-    desc = models.CharField("Description",max_length=500,default="",blank=True)
+    desc = models.CharField("Description",max_length=1000,default="",blank=True)
+    condition = models.CharField("Condition",default="",max_length=1000)
+    brand = models.CharField("Brand",default="",max_length=100)
     loc = models.CharField("Item Location Name",max_length=200)
     locx = models.CharField("X Coordinate",max_length=200)
     locy = models.CharField("Y Coordinate",max_length=200)

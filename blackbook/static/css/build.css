@@ -11687,18 +11687,19 @@ textarea.form-control-lg {
   background-color: rgba(var(--bs-primary-rgb), 0.4);
 }
 
-.overflow-scroll::-webkit-scrollbar {
-  background: transparent;
-  width: 5px;
+::-webkit-scrollbar {
+  background:transparent;
+  width:5px;
 }
 
-.overflow-scroll::-webkit-scrollbar-track {
-  background: transparent;
+::-webkit-scrollbar-track {
+  background:transparent;
 }
 
-.overflow-scroll::-webkit-scrollbar-thumb {
-  background: var(--bs-gray);
+::-webkit-scrollbar-thumb {
+  background:var(--bs-gray);
   border-radius: 1em;
 }
+
 
 /*# sourceMappingURL=build.css.map */
