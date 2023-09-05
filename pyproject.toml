@@ -1,8 +1,12 @@
 [tool.poetry]
-name = "repl_nix_Blackbook-Marketplace"
+name = "Blackbook-Marketplace"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "A clone of Facebook marketplace, because I'm bored"
+authors = ["tomgxz <tomgxz.dev@gmail.com>"]
+license = "GPL-3.0-or-later"
+homepage = "https://blackbook-marketplace.tomgxz.repl.co/"
+repository = "https://github.com/Tomgxz/Blackbook-Marketplace"
+keywords = ["html","django","scss"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
