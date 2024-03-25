@@ -10,7 +10,7 @@ keywords = ["html","django","scss"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-Django = "^4.2.10"
+Django = "^4.2.11"
 whitenoise = "^6.5.0"
 geopy = "^2.3.0"
 
