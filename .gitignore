@@ -5,6 +5,8 @@ replit.nix
 blackbook/data/useraccesslog
 
 blackbook/migrations/*
+blackbook/static/bootstrap
+blackbook/static/css
 
 ### Django ###
 *.log
